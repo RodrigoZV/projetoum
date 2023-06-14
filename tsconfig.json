@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/botoes/page.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/botoes/page.js", "app/pag-principal/page.tsx", "app/pag-principal/componente/meio.tsx"],
   "exclude": ["node_modules"]
 }

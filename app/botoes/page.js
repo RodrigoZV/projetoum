@@ -1,26 +1,27 @@
 "use client"
-import Style from '../login/login.module.css'
 import { useState } from 'react'
 import { AiOutlineUser } from 'react-icons/ai'
+import { useRouter } from 'next/navigation';
+import Styles from './botoes.module.css'
+import { styled } from 'styled-components';
+
+
 
 export default function login(){
+  const router = useRouter();
+
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
-  const [error, setError] = useState()
-
-  const defaultUser = {
-    'nome': 'banimortal',
-    'email': 'banimortal@gmail.com',
-    'senha': 'imortalban'
-  }
-
+  const [logado, setLogado] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
+  
   function validarCredenciais(email, senha) {
     // Verificar se as credenciais existem no localStorage
     const storedEmail = localStorage.getItem('email');
     const storedSenha = localStorage.getItem('senha');
     
     // Verificar se as credenciais inseridas correspondem às armazenadas
-    if (email === storedEmail && senha === storedSenha || email === defaultUser.email && senha === defaultUser.senha) {
+    if (email === storedEmail && senha === storedSenha) {
       return true; // Credenciais válidas
     } else {
       return false; // Credenciais inválidas
@@ -29,29 +30,41 @@ export default function login(){
 
   const logarbotao = () => {
     if (validarCredenciais(email, senha)) {
-      // Lógica para redirecionar ou realizar ações após o login bem-sucedido
-      console.log('Login bem-sucedido');
+      alert("login deu certo!")
+      router.push("/pag-principal")
     } else {
-      setError('Credenciais inválidas');
+      setErrorMessage('Usuário não encontrado, tente novamente!')
     }
+
   };
-    
-return(
-<main>
 
-  
-    <form onSubmit={validarCredenciais}>
-        <div className={Style.user}>
-          <AiOutlineUser/>
+  if (logado) {
+    return(<div></div>)
+  } else {
+    return(
+      <Wrapper>
+        <div className={Styles.tudo} >
+          <h1>The Seven Deadly Sins</h1>
+          <div className={Styles.icons}>
+            <AiOutlineUser/>
+          </div>
+
+          <div className={Styles.parte1} >
+              <input className={Styles.parte2} type="email" name="Email" placeholder="Seu Email" id="email" value={email} onChange={e => setEmail(e.target.value)} />
+              <input className={Styles.parte2} type="password" name="Senha" placeholder='Sua Senha' id="senha" value={senha} onChange={e => setSenha(e.target.value)} />
+              <div>
+                <button onClick={logarbotao} className="botao">Entrar</button>
+              </div>
+            {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+          </div>
         </div>
-      <div className={Style.menu}>
-         <input type="email" name="Email" placeholder="Seu Email" id="email" value={email} onChange={(e) => {setEmail(e.target.value),setError('')}} />
-         <input type="password" name="Senha" placeholder='Sua Senha' id="senha" value={senha} onChange={(e) => {setSenha(e.target.value),setError('')}} />
-         <button onClick={logarbotao} className="botao">Enviar</button>
-      </div>
-    </form>
-
-
-</main>
-)
+      </Wrapper>
+    )
+  }
 }
+
+const Wrapper = styled.section`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`

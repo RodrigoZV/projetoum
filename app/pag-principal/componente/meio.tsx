@@ -13,13 +13,13 @@ return(
                  <table>
                     <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>Email</th>
-                            <th>Senha</th>
-                            <th>Nome</th>
-                            <th>Raça</th>
-                            <th>Idade</th>
-                            <th>T Sagrados</th>
+                            <Barras>Id</Barras>
+                            <Barras>Email</Barras>
+                            <Barras>Senha</Barras>
+                            <Barras>Nome</Barras>
+                            <Barras>Raça</Barras>
+                            <Barras>Idade</Barras>
+                            <Barras>T Sagrados</Barras>
                         </tr>
                     </thead>
                     <tbody id='listaRegistrosBody'></tbody>
@@ -27,42 +27,53 @@ return(
                 
 
                 <div>
-                    <button>Novo Usuário</button>
+                    <Butao2>Novo Usuário</Butao2>
                 </div>
 
                 <form id="cadastroRegistro">
                     <div>
                         <div>ID</div>
                         <div>
-                            <input type="number" readOnly id="id"/>
+                            <Mudar type="number" readOnly id="id">
+
+                            </Mudar>
                         </div>
                     </div>
 
                     <div>
                         <div>Email</div>
                         <div>
-                            <input required type="email" id="email"/>
+                            <Mudar required type="email" id="email" >
+                                
+                            </Mudar>
                         </div>
                     </div>
 
                     <div>
                         <div>Senha</div>
                         <div>
-                            <input required type="password" id="senha" />
+                            <Mudar required type="password" id="senha">
+                            
+                            </Mudar> 
                         </div>
                     </div>
 
                     <div>
                         <div>Nome</div>
                         <div>
-                            <input required id="nome" />
+                            <Mudar required id="nome">
+
+                            </Mudar>
+                
                         </div>
                     </div>
 
                     <div>
                         <div>Raça</div>
                         <div>
-                            <input required id="raça" />
+                            <Mudar required id="raça">
+
+                            </Mudar>
                         </div>
                     </div>
 
@@ -88,6 +99,7 @@ return(
                     <Butao2>
                         Salvar
                     </Butao2>
+
                     <Butao2>
                         Cancelar
                     </Butao2>
@@ -100,22 +112,31 @@ return(
     )
 }
 
+const Barras = styled.th`
+    color: white;
+    font-size: 18px;
+    border: solid 1px #f8f7f7;
+    padding: 10px;
+    background: transparent;
+    box-shadow: 0 8px 32px 0 rgba(5, 5, 5, 0.37);
+    backdrop-filter: blur(4px);
+`
 
 const Mudar = styled.input`
 
- color: #8707ff;
- border: 2px solid #8707ff;
+ color: #ffffff;
+ border: 2px solid #000000;
  border-radius: 10px;
  padding: 10px 25px;
  background: transparent;
  max-width: 190px;
+ margin: 10px;
 
 
 &:active {
- box-shadow: 2px 2px 15px #8707ff inset;
+ box-shadow: 2px 2px 15px #000000 inset;
 }
 `
-
 
 const Butao2 = styled.button`
   margin: 20px;
@@ -136,8 +157,8 @@ const Butao2 = styled.button`
     background-color: #000000;
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
     color: #fff;
-}
     transform: translateY(-4px);
+}
     &:active {
       transform: translateY(-1px);
 }

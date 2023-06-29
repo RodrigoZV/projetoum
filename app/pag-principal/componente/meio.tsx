@@ -7,7 +7,6 @@ export default function Meio(){
 
     function showForm(){
         setVisualize(true)
-
     }
 
 return(
@@ -40,82 +39,81 @@ return(
 
                 {visualize?
 
-                <form id="cadastroRegistro">
-                <div>
-                    <div>ID</div>
+                <Tela id="cadastroRegistro">
                     <div>
-                        <Mudar type="number" readOnly id="id">
+                        <div>ID</div>
+                        <div>
+                            <Mudar type="number" readOnly id="id">
 
-                        </Mudar>
+                            </Mudar>
+                        </div>
                     </div>
-                </div>
 
-                <div>
-                    <div>Email</div>
                     <div>
-                        <Mudar required type="email" id="email" >
+                     <div>Email</div>
+                        <div>
+                            <Mudar required type="email" id="email" >
                             
-                        </Mudar>
+                            </Mudar>
+                        </div>
                     </div>
-                </div>
 
-                <div>
-                    <div>Senha</div>
                     <div>
-                        <Mudar required type="password" id="senha">
+                        <div>Senha</div>
+                        <div>
+                            <Mudar required type="password" id="senha">
                         
-                        </Mudar> 
+                            </Mudar> 
+                        </div>
                     </div>
-                </div>
 
-                <div>
-                    <div>Nome</div>
                     <div>
-                        <Mudar required id="nome">
+                        <div>Nome</div>
+                        <div>
+                            <Mudar required id="nome">
 
-                        </Mudar>
+                            </Mudar>
             
+                        </div>
                     </div>
-                </div>
 
-                <div>
-                    <div>Raça</div>
                     <div>
-                        <Mudar required id="raça">
+                        <div>Raça</div>
+                        <div>
+                            <Mudar required id="raça">
 
-                        </Mudar>
+                            </Mudar>
+                        </div>
                     </div>
-                </div>
 
-                <div>
-                    <div>Idade</div>
                     <div>
-                        <Mudar required type="number" id="idade">
+                        <div>Idade</div>
+                        <div>
+                            <Mudar required type="number" id="idade">
                         
-                        </Mudar>
+                            </Mudar>
+                         </div>
                     </div>
-                </div>
                 
-                <div>
-                    <div>T Sagrado</div>
                     <div>
-                        <Mudar required id="T sagrado">
+                        <div>T Sagrado</div>
+                         <div>
+                            <Mudar required id="T sagrado">
                              
-                        </Mudar>
+                            </Mudar>
+                         </div>
                     </div>
-                </div>
+                    
+                    <div>
+                        <Butao2>
+                            Salvar
+                        </Butao2>
 
-                <div>
-                <Butao2>
-                    Salvar
-                </Butao2>
-
-                <Butao2>
-                    Cancelar
-                </Butao2>
-                </div>
-                
-            </form>
+                        <Butao2>
+                            Cancelar
+                        </Butao2>
+                    </div>
+                </Tela>
                 :<></>}
 
             </div>
@@ -145,7 +143,6 @@ const Barras = styled.th`
 `
 
 const Mudar = styled.input`
-
  color: #ffffff;
  border: 2px solid #000000;
  border-radius: 10px;
@@ -161,7 +158,7 @@ const Mudar = styled.input`
 `
 const Mudar2 = styled.input`
  color: #ffffff;
- border: 2px solid #000000;
+ border: 2px solid #ffffff;
  border-radius: 10px;
  padding: 10px 25px;
  background: transparent;
@@ -198,4 +195,9 @@ const Butao2 = styled.button`
     &:active {
       transform: translateY(-1px);
 }
+`
+const Tela = styled.form`
+    background: transparent;
+    box-shadow: 0 8px 32px 0 rgba(5, 5, 5, 0.37);
+    backdrop-filter: blur(4px);
 `

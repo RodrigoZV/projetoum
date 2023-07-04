@@ -10,18 +10,22 @@ import { styled } from 'styled-components';
 export default function login(){
   const router = useRouter();
 
-  const [email, setEmail] = useState('')
-  const [senha, setSenha] = useState('')
+  // const [email, setEmail] = useState('')
+  // const [senha, setSenha] = useState('')
+  const [newUser, setNewUser] = useState({email:'', senha:''})
+  
   const [logado, setLogado] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   
-  function validarCredenciais(email, senha) {
+  function validarCredenciais(newUser) {
     // Verificar se as credenciais existem no localStorage
     const storedEmail = localStorage.getItem('email');
     const storedSenha = localStorage.getItem('senha');
     
+    
+
     // Verificar se as credenciais inseridas correspondem às armazenadas
-    if (email === storedEmail && senha === storedSenha) {
+    if (newUser.email === storedEmail && newUser.senha === storedSenha) {
       return true; // Credenciais válidas
     } else {
       return false; // Credenciais inválidas
@@ -29,8 +33,9 @@ export default function login(){
   }
 
   const logarbotao = () => {
-    if (validarCredenciais(email, senha)) {
+    if (validarCredenciais(newUser)) {
       alert("login deu certo!")
+      localStorage.setItem('currentUser', newUser);
       router.push("/pag-principal")
     } else {
       setErrorMessage('Usuário não encontrado, tente novamente!')
@@ -50,8 +55,8 @@ export default function login(){
           </div>
 
           <div className={Styles.parte1} >
-              <input className={Styles.parte2} type="email" name="Email" placeholder="Seu Email" id="email" value={email} onChange={e => setEmail(e.target.value)} />
-              <input className={Styles.parte2} type="password" name="Senha" placeholder='Sua Senha' id="senha" value={senha} onChange={e => setSenha(e.target.value)} />
+              <input className={Styles.parte2} type="email" name="Email" placeholder="Seu Email" id="email" value={newUser.email} onChange={e => setNewUser({...newUser, email:e.target.value})} />
+              <input className={Styles.parte2} type="password" name="Senha" placeholder='Sua Senha' id="senha" value={newUser.senha} onChange={e => setNewUser({...newUser, senha:e.target.value})} />
               <div>
                 <Butao onClick={logarbotao}>
                   Entrar

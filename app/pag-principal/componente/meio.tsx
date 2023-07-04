@@ -50,7 +50,7 @@ return(
                     </div>
 
                     <div>
-                     <div>Email</div>
+                     <Cor>Email</Cor>
                         <div>
                             <Mudar required type="email" id="email" >
                             
@@ -59,7 +59,7 @@ return(
                     </div>
 
                     <div>
-                        <div>Senha</div>
+                        <Cor>Senha</Cor>
                         <div>
                             <Mudar required type="password" id="senha">
                         
@@ -68,7 +68,7 @@ return(
                     </div>
 
                     <div>
-                        <div>Nome</div>
+                        <Cor>Nome</Cor>
                         <div>
                             <Mudar required id="nome">
 
@@ -78,7 +78,7 @@ return(
                     </div>
 
                     <div>
-                        <div>Raça</div>
+                        <Cor>Raça</Cor>
                         <div>
                             <Mudar required id="raça">
 
@@ -87,7 +87,7 @@ return(
                     </div>
 
                     <div>
-                        <div>Idade</div>
+                        <Cor>Idade</Cor>
                         <div>
                             <Mudar required type="number" id="idade">
                         
@@ -96,7 +96,7 @@ return(
                     </div>
                 
                     <div>
-                        <div>T Sagrado</div>
+                        <Cor>T Sagrado</Cor>
                          <div>
                             <Mudar required id="T sagrado">
                              
@@ -140,6 +140,10 @@ const Barras = styled.th`
     background: transparent;
     box-shadow: 0 8px 32px 0 rgba(5, 5, 5, 0.37);
     backdrop-filter: blur(4px);
+`
+const Cor = styled.div`
+color: white;
+padding: 5px;
 `
 
 const Mudar = styled.input`

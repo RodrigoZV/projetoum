@@ -6,6 +6,9 @@ import {AiOutlineLogout} from 'react-icons/ai';
 import Meio from './componente/meio';
 
 export default function Home() {
+
+  
+
     return (
 
 <div>
